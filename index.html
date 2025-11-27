@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="page-header">
+    <h1>Course Explorer</h1>
+    <p>Browse, filter, and sort available courses.</p>
+</header>
+
+<main class="layout">
+    <!-- Left: Load + Filters + Sort -->
+    <section class="panel controls-panel">
+        <h2>Data & Filters</h2>
+
+        <div class="block file-block">
+            <h3>Load Course Data</h3>
+            <p class="hint">
+                You can either load the provided <code>courses.json</code> from this folder
+                or choose another JSON file with the same structure.
+            </p>
+            <div class="file-row">
+                <button id="loadDefaultBtn">Load default courses.json</button>
+            </div>
+            <div class="file-row">
+                <label for="fileInput">Or choose a JSON file:</label>
+                <input type="file" id="fileInput" accept=".json,application/json">
+            </div>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="block filters-block">
+            <h3>Filters</h3>
+
+            <div class="filter-group">
+                <label for="departmentFilter">Department</label>
+                <select id="departmentFilter">
+                    <option value="">All departments</option>
+                    <!-- Filled dynamically -->
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="levelFilter">Level</label>
+                <select id="levelFilter">
+                    <option value="">All levels</option>
+                    <option value="100">100-level</option>
+                    <option value="200">200-level</option>
+                    <option value="300">300-level</option>
+                    <option value="400">400-level</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="creditsFilter">Credits</label>
+                <select id="creditsFilter">
+                    <option value="">All credits</option>
+                    <!-- Filled dynamically -->
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="searchInput">Search (title / description / instructor)</label>
+                <input type="text" id="searchInput" placeholder="e.g., algorithms, design">
+            </div>
+
+            <button id="resetFiltersBtn" type="button">Reset Filters</button>
+        </div>
+
+        <div class="block sort-block">
+            <h3>Sort</h3>
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+                <option value="title-asc">Title (A → Z)</option>
+                <option value="title-desc">Title (Z → A)</option>
+                <option value="id">Course ID</option>
+                <option value="semester">Semester</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Middle: Course list -->
+    <section class="panel list-panel">
+        <div class="list-header">
+            <h2>Courses</h2>
+            <span id="resultsCount" class="results-count">No data loaded</span>
+        </div>
+        <ul id="courseList" class="course-list">
+            <!-- Filled via JS -->
+        </ul>
+    </section>
+
+    <!-- Right: Details -->
+    <aside class="panel details-panel">
+        <h2>Course Details</h2>
+        <div id="courseDetails" class="course-details">
+            <p>Select a course from the list to see its details here.</p>
+        </div>
+    </aside>
+</main>
+
+<footer class="page-footer">
+    <small>Mini Project 2: Course Explorer</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
