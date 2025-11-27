@@ -32,8 +32,6 @@ Right-click index.html → Open with Live Server
 
 Click Load default courses.json to load the data
 
-That’s it.
-
 Files
 index.html   – main page
 styles.css   – styling
